@@ -32,10 +32,16 @@ SELECT `department_id`, `name`, `address` FROM `degrees`
 WHERE `name` LIKE '%Magistrale%';
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
-SELECT COUNT(`ID`) FROM `departments`;
+SELECT COUNT(`ID`) AS `departments_in_uni` FROM `departments`;
 
 -- # con visualizzazione grafica
 SELECT `id`, `name` FROM `departments`
 GROUP BY `id`;
 
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+SELECT COUNT(`id`) AS `teachers_withouth_phone` FROM `teachers` WHERE `phone` <> '%';
+
+-- # con visualizzazione grafica
+SELECT `id`, `surname`, `email`, `office_number` FROM `teachers`
+WHERE `phone` <> '%';
+
