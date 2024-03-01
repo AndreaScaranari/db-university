@@ -32,6 +32,9 @@ SELECT `department_id`, `name`, `address` FROM `degrees`
 WHERE `name` LIKE '%Magistrale%';
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
+SELECT COUNT(`ID`) FROM `departments`;
+
+-- # con visualizzazione grafica
 SELECT `id`, `name` FROM `departments`
 GROUP BY `id`;
 
