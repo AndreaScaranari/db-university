@@ -9,9 +9,9 @@ WHERE `cfu` > 10;
 
 -- 3. Selezionare tutti gli studenti che hanno più di 30 anni
 SELECT `name`, `surname`, `registration_number`, `date_of_birth`, `fiscal_code` FROM `students` 
-WHERE YEAR(`date_of_birth`) < 1995 
+WHERE DAY(`date_of_birth`) < 2 
 AND MONTH(`date_of_birth`) < 3 
-AND DAY(`date_of_birth`) < 2;
+AND YEAR(`date_of_birth`) < 1995;
 
 -- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
 -- laurea (286)
@@ -23,9 +23,9 @@ AND `year` = 1;
 -- 20/06/2020 (21)
 SELECT * FROM `exams`
 WHERE `hour` >= "14:00:00"
-AND YEAR(`date`) = 2020
+AND DAY(`date`) = 20
 AND MONTH(`date`) = 06
-AND DAY(`date`) = 20;
+AND YEAR(`date`) = 2020;
 
 -- 6. Selezionare tutti i corsi di laurea magistrale (38)
 SELECT `department_id`, `name`, `address` FROM `degrees` 
