@@ -1,12 +1,18 @@
 -- * Esercizi con JOIN
 -- 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
-SELECT S.`registration_number`, S.`name`, S.`surname`, DEG.`name`
-FROM `degrees` AS `DEG`
-JOIN `students` AS `S`
-ON DEG.`id` = S.`degree_id`
+SELECT S.`registration_number`, S.`name`, S.`surname`, DEG.`name` AS `course_name`
+FROM `students` AS `S` 
+JOIN `degrees` AS `DEG`
+ON  S.`degree_id`= DEG.`id`
 WHERE DEG.`name` = 'Corso di Laurea in Economia';
 
 -- 2. Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze
+SELECT DEP.`name`, `DEG`.`name`
+FROM `degrees` AS `DEG`
+JOIN `departments` AS `DEP`
+ON  DEG.`department_id` = DEP.`id`
+WHERE DEP.`name` = 'Dipartimento di Neuroscienze';
+
 -- 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 -- 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il
 -- relativo dipartimento, in ordine alfabetico per cognome e nome
