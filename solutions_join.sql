@@ -23,8 +23,14 @@ ON CT.`teacher_id` = T.`id`
 WHERE T.`surname` = 'Amato'
 AND T.`name` = 'Fulvio';
 
--- # 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
-
+-- 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+SELECT S.`surname` AS `Cognome_studente`, s.`name` AS `Nome_studente`, s.registration_number  AS `#matricola`, DEG.`name`  AS `Corso_di_laurea`, DEP.`name`  AS `Dipartimento`
+FROM `students` AS S
+JOIN `degrees` AS DEG
+ON `S`.`degree_id` = DEG.`id`
+JOIN `departments` AS DEP
+ON `DEG`.`department_id` = `DEP`.`id`
+ORDER BY S.`surname` ASC, s.`name` ASC;
 
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 SELECT DEG.`name` AS `Facoltà`, C.`name` AS `Corso`, T.`surname` AS `Professore`
@@ -50,5 +56,4 @@ ON CT.`teacher_id` = T.`id`
 WHERE DEP.`name` = 'Dipartimento di Matematica';
 
 
--- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
--- superare ciascuno dei suoi esami
+-- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
