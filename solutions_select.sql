@@ -29,7 +29,7 @@ AND YEAR(`date`) = 2020;
 
 -- 6. Selezionare tutti i corsi di laurea magistrale (38)
 SELECT `department_id`, `name`, `address` FROM `degrees` 
-WHERE `name` LIKE '%Magistrale%';
+WHERE `level` = 'magistrale';
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 SELECT COUNT(`ID`) AS `departments_in_uni` FROM `departments`;
